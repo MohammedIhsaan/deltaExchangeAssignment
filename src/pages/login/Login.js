@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./login.css";
 export default function Login() {
   return (
@@ -19,15 +20,17 @@ export default function Login() {
               <i class="fa fa-lock"></i>
               <input type="text" className="input" placeholder="Password" />
             </div>
-            <button type="button" className="btn">
+            <button type="button" className="btn-login">
               LOGIN
             </button>
             <div className="new-user-signup">
               <span>new user</span>{" "}
-              <a className="signup" style={{ paddingLeft: "10px" }}>
-                {" "}
-                SignUp
-              </a>
+              <Link to="signup">
+                <a className="signup" style={{ paddingLeft: "10px" }}>
+                  {" "}
+                  SignUp
+                </a>
+              </Link>
             </div>
           </form>
           <h5 style={{ textAlign: "center", fontSize: "24px" }}>

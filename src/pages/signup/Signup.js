@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./signup.css";
 
 export default function Singup() {
@@ -32,15 +33,17 @@ export default function Singup() {
                 placeholder="Confirm Password"
               />
             </div>
-            <button type="button" className="btn">
+            <button type="button" className="btn-signup">
               SignUp
             </button>
             <div className="new-user-signup">
               <span>Already have account</span>{" "}
-              <a className="signup" style={{ paddingLeft: "10px" }}>
-                {" "}
-                Login
-              </a>
+              <Link to="/">
+                <a className="signup" style={{ paddingLeft: "10px" }}>
+                  {" "}
+                  Login
+                </a>
+              </Link>
             </div>
           </form>
           <h5 style={{ textAlign: "center", fontSize: "24px" }}>

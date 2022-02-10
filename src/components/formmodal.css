@@ -1,0 +1,43 @@
+.formModal {
+  display: flex;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  /* height: 70%; */
+  width: 63%;
+  background-color: white;
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.input {
+  width: 100%;
+}
+
+.button-div {
+  padding-top: 10px;
+  display: flex;
+  justify-content: end;
+}
+
+button {
+  height: 30px;
+  border-radius: 24px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.button-closed {
+  border: none;
+  background-color: white;
+  position: absolute;
+  right: 5px;
+  top: 0px;
+  font-size: 20px;
+}
+
+.display {
+  display: none;
+}

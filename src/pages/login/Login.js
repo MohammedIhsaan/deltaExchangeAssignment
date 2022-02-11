@@ -1,7 +1,23 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { login } from "../../redux/actions/action";
 import "./login.css";
-export default function Login() {
+export default function Login({ setpath }) {
+  const dispatch = useDispatch();
+  const history = useNavigate();
+
+  const accessToken = useSelector((state) => state.authReducer.accessToken);
+  const handlelogin = () => {
+    dispatch(login());
+  };
+
+  useEffect(() => {
+    if (accessToken) {
+      history("/");
+    }
+  }, [accessToken, history]);
+
   return (
     <div className="login-container">
       <div className="form-login">
@@ -25,7 +41,7 @@ export default function Login() {
             </button>
             <div className="new-user-signup">
               <span>new user</span>{" "}
-              <Link to="signup">
+              <Link onClick={() => setpath("/signup")} to="/signup">
                 <a className="signup" style={{ paddingLeft: "10px" }}>
                   {" "}
                   SignUp
@@ -38,7 +54,7 @@ export default function Login() {
           </h5>
           <div className="social">
             <a href="#">
-              <i className="fab fa-google"></i>
+              <i onClick={handlelogin} className="fab fa-google"></i>
             </a>
           </div>
         </div>

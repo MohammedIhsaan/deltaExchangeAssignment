@@ -1,8 +1,27 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { login } from "../../redux/actions/action";
 import "./signup.css";
 
-export default function Singup() {
+export default function Singup({ setpath }) {
+  const dispatch = useDispatch();
+  const history = useNavigate();
+
+  const handleLogin = () => {
+    console.log("login attemted");
+    dispatch(login());
+  };
+
+  const accessToken = useSelector((state) => state.authReducer.accessToken);
+  console.log(accessToken);
+
+  useEffect(() => {
+    if (accessToken) {
+      history("/");
+    }
+  }, [accessToken, history]);
+
   return (
     <div className="signup-container">
       <div className="form-signup">
@@ -38,7 +57,7 @@ export default function Singup() {
             </button>
             <div className="new-user-signup">
               <span>Already have account</span>{" "}
-              <Link to="/">
+              <Link onClick={() => setpath("/login")} to="/login">
                 <a className="signup" style={{ paddingLeft: "10px" }}>
                   {" "}
                   Login
@@ -51,7 +70,7 @@ export default function Singup() {
           </h5>
           <div className="social">
             <a href="#">
-              <i className="fab fa-google"></i>
+              <i onClick={handleLogin} className="fab fa-google"></i>
             </a>
           </div>
         </div>

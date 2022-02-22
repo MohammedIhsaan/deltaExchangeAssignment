@@ -7,7 +7,7 @@ import "./signup.css";
 
 export default function Singup({ setpath }) {
   const [currentUser, setCurrentUser] = useState(null);
-  const [erorr, seterorr] = useState("");
+  const [texterorr, seterorr] = useState("");
   const [loading, setloading] = useState(false);
   const dispatch = useDispatch();
   const history = useNavigate();
@@ -17,13 +17,25 @@ export default function Singup({ setpath }) {
     confirmPasswordRef = useRef(),
     nameRef = useRef();
 
+  const { accessToken, user, error } = useSelector(
+    (state) => state.authReducer
+  );
+
   async function handleSubmit(e) {
     e.preventDefault();
 
     if (passwordRef.current.value !== confirmPasswordRef.current.value) {
-      return seterorr("password do not matched");
+      seterorr("password do not matched");
+      return;
     }
-
+    if (
+      emailRef.current.value === "" ||
+      nameRef.current.value === "" ||
+      passwordRef.current.value === "" ||
+      confirmPasswordRef.current.value === ""
+    ) {
+      seterorr("Fill All Input");
+    }
     dispatch(
       registerStart(
         emailRef.current.value,
@@ -31,14 +43,14 @@ export default function Singup({ setpath }) {
         nameRef.current.value
       )
     );
+    if (error) {
+      console.log("error", error);
+    }
   }
 
   const handleLogin = () => {
     dispatch(loginByGoogle());
   };
-
-  const { accessToken, user } = useSelector((state) => state.authReducer);
-  console.log("fooooo", accessToken, user);
 
   useEffect(() => {
     if (accessToken) {
@@ -58,7 +70,8 @@ export default function Singup({ setpath }) {
             <i className="fa fa-user-circle" style={{ fontSize: "110px" }}></i>
           </h4>
         </div>
-        {erorr && <span>{erorr}</span>}
+        {texterorr && <span className="signup-error">{texterorr}</span>}
+        {error && <span className="signup-error">{error}</span>}
         <div className="body-form">
           <form onSubmit={handleSubmit}>
             <div className="input-div">

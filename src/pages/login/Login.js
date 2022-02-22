@@ -1,31 +1,34 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  loginByGoogle,
-  loginByEmail,
-  loginStart,
-} from "../../redux/actions/action";
+import { loginByGoogle, loginStart } from "../../redux/actions/action";
 import "./login.css";
 export default function Login() {
   const dispatch = useDispatch();
   const history = useNavigate();
-  const [error, seterror] = useState("");
+  const [texterror, settexterror] = useState("");
   const [loading, setloading] = useState(false);
 
   let emailRef = useRef(),
     passwordRef = useRef();
 
+  const { accessToken, user, error } = useSelector(
+    (state) => state.authReducer
+  );
+
   async function handleSubmit(e) {
     e.preventDefault();
     console.log("submit");
     if (!emailRef.current.value || !passwordRef.current.value) {
+      settexterror("Fill All Input");
       return;
     }
     dispatch(loginStart(emailRef.current.value, passwordRef.current.value));
+    if (error) {
+      console.log("error", error);
+    }
   }
 
-  const { accessToken, user } = useSelector((state) => state.authReducer);
   const handlelogin = () => {
     dispatch(loginByGoogle());
   };
@@ -48,7 +51,8 @@ export default function Login() {
             <i className="fa fa-user-circle" style={{ fontSize: "110px" }}></i>
           </h4>
         </div>
-        {error && <div>{error}</div>}
+        {texterror && <div className="login-error">{texterror}</div>}
+        {error && <div className="login-error">{error}</div>}
         <div className="body-form">
           <form onSubmit={handleSubmit}>
             <div className="login-input-div">

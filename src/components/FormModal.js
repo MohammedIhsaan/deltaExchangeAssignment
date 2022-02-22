@@ -73,8 +73,12 @@ export default function FormModal({ popup, setpopup, setblur }) {
         <input className="modal-input" type="text" ref={noteRef} />
       </form>
       <div className="button-div">
-        <button onClick={handleCancel}>Cancel</button>
-        <button onClick={handleSubmit}>Save</button>
+        <button className="modal-button" onClick={handleCancel}>
+          Cancel
+        </button>
+        <button className="modal-button" onClick={handleSubmit}>
+          Save
+        </button>
       </div>
     </div>
   );

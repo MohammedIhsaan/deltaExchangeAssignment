@@ -48,11 +48,11 @@ export default function Singup({ setpath }) {
 
   useEffect(() => {
     if (accessToken) {
-      history("/");
+      history("deltaExchangeAssignment/");
     }
     if (user) {
       console.log("user form if", user);
-      history("/");
+      history("deltaExchangeAssignment/");
     }
   }, [accessToken, history, user]);
 
@@ -112,7 +112,7 @@ export default function Singup({ setpath }) {
               <Link
                 className="signup"
                 style={{ paddingLeft: "10px" }}
-                to="/login"
+                to="/deltaExchangeAssignment/login"
               >
                 Login
               </Link>

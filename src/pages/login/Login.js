@@ -31,11 +31,11 @@ export default function Login() {
 
   useEffect(() => {
     if (accessToken) {
-      history("/");
+      history("deltaExchangeAssignment/");
     }
     if (user) {
       console.log("user form if", user);
-      history("/");
+      history("deltaExchangeAssignment/");
     }
   }, [accessToken, history, user]);
 
@@ -77,7 +77,7 @@ export default function Login() {
               <Link
                 className="login-signup"
                 style={{ paddingLeft: "10px" }}
-                to="/signup"
+                to="/deltaExchangeAssignment/signup"
               >
                 SignUp
               </Link>

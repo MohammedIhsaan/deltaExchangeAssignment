@@ -1,14 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../../firebase";
 import { loginByGoogle, registerStart } from "../../redux/actions/action";
 import "./signup.css";
 
 export default function Singup({ setpath }) {
-  const [currentUser, setCurrentUser] = useState(null);
   const [texterorr, seterorr] = useState("");
-  const [loading, setloading] = useState(false);
   const dispatch = useDispatch();
   const history = useNavigate();
 
@@ -23,7 +20,7 @@ export default function Singup({ setpath }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-
+    seterorr("");
     if (passwordRef.current.value !== confirmPasswordRef.current.value) {
       seterorr("password do not matched");
       return;
@@ -43,9 +40,6 @@ export default function Singup({ setpath }) {
         nameRef.current.value
       )
     );
-    if (error) {
-      console.log("error", error);
-    }
   }
 
   const handleLogin = () => {
@@ -102,7 +96,7 @@ export default function Singup({ setpath }) {
               />
             </div>
             <div className="input-div">
-              <i class="fa fa-lock"></i>
+              <i className="fa fa-lock"></i>
               <input
                 type="Password"
                 className="input"
@@ -110,16 +104,17 @@ export default function Singup({ setpath }) {
                 placeholder="Confirm Password"
               />
             </div>
-            <button disabled={loading} type="submit" className="btn-signup">
+            <button type="submit" className="btn-signup">
               SignUp
             </button>
             <div className="new-user-signup">
               <span>Already have account</span>{" "}
-              <Link to="/login">
-                <a className="signup" style={{ paddingLeft: "10px" }}>
-                  {" "}
-                  Login
-                </a>
+              <Link
+                className="signup"
+                style={{ paddingLeft: "10px" }}
+                to="/login"
+              >
+                Login
               </Link>
             </div>
           </form>
@@ -133,9 +128,7 @@ export default function Singup({ setpath }) {
             Or sign in with:
           </h5>
           <div className="social">
-            <a href="#">
-              <i onClick={handleLogin} className="fab fa-google"></i>
-            </a>
+            <i onClick={handleLogin} className="fab fa-google"></i>
           </div>
         </div>
       </div>

@@ -7,7 +7,6 @@ export default function Login() {
   const dispatch = useDispatch();
   const history = useNavigate();
   const [texterror, settexterror] = useState("");
-  const [loading, setloading] = useState(false);
 
   let emailRef = useRef(),
     passwordRef = useRef();
@@ -18,15 +17,12 @@ export default function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log("submit");
+    settexterror("");
     if (!emailRef.current.value || !passwordRef.current.value) {
       settexterror("Fill All Input");
       return;
     }
     dispatch(loginStart(emailRef.current.value, passwordRef.current.value));
-    if (error) {
-      console.log("error", error);
-    }
   }
 
   const handlelogin = () => {
@@ -56,7 +52,7 @@ export default function Login() {
         <div className="body-form">
           <form onSubmit={handleSubmit}>
             <div className="login-input-div">
-              <i class="fa fa-user"></i>
+              <i className="fa fa-user"></i>
               <input
                 type="text"
                 className="login-input"
@@ -65,7 +61,7 @@ export default function Login() {
               />
             </div>
             <div className="login-input-div">
-              <i class="fa fa-lock"></i>
+              <i className="fa fa-lock"></i>
               <input
                 type="password"
                 className="login-input"
@@ -73,16 +69,17 @@ export default function Login() {
                 placeholder="Password"
               />
             </div>
-            <button disabled={loading} type="submit" className="btn-login">
+            <button type="submit" className="btn-login">
               LOGIN
             </button>
             <div className="login-new-user-signup">
               <span>new user</span>{" "}
-              <Link to="/signup">
-                <a className="login-signup" style={{ paddingLeft: "10px" }}>
-                  {" "}
-                  SignUp
-                </a>
+              <Link
+                className="login-signup"
+                style={{ paddingLeft: "10px" }}
+                to="/signup"
+              >
+                SignUp
               </Link>
             </div>
           </form>
@@ -96,9 +93,7 @@ export default function Login() {
             Or sign in with:
           </h5>
           <div className="login-social">
-            <a href="#">
-              <i onClick={handlelogin} className="fab fa-google"></i>
-            </a>
+            <i onClick={handlelogin} className="fab fa-google"></i>
           </div>
         </div>
       </div>

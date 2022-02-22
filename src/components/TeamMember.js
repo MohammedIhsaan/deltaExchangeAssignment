@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./teamMember.css";
 import downIcon from "../icons/down-arrow.png";
-import { addMemeber, deleteMemeber } from "../redux/actions/action";
+import { deleteMemeber } from "../redux/actions/action";
 import FormModal from "./FormModal";
-import { useNavigate } from "react-router-dom";
 
 export default function TeamMember() {
   let data = useSelector((state) => state.allMember.member);
@@ -17,12 +16,6 @@ export default function TeamMember() {
     new Array(data.length).fill(false)
   );
   const [isCheckedAll, setIsCheckedAll] = useState(false);
-  //   const [data, setdata] = useState(data);
-
-  const { accessToken, user } = useSelector((state) => state.authReducer);
-  console.log("fooooo", accessToken, user);
-
-  const history = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -69,8 +62,6 @@ export default function TeamMember() {
   console.log(count);
 
   useEffect(() => {
-    // user ? history("/") : history("/login");
-    // accessToken ? history("/") : history("/login");
     isChecked.every((value) => value === true)
       ? setIsCheckedAll(true)
       : setIsCheckedAll(false);

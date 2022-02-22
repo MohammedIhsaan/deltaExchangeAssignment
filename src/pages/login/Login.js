@@ -31,11 +31,11 @@ export default function Login() {
 
   useEffect(() => {
     if (accessToken) {
-      history("deltaExchangeAssignment/");
+      history("/");
     }
     if (user) {
       console.log("user form if", user);
-      history("deltaExchangeAssignment/");
+      history("/");
     }
   }, [accessToken, history, user]);
 

@@ -8,30 +8,28 @@
 
 .form-login {
   width: 380px;
-  height: 550px;
+  height: 450px;
   background-color: rgb(231, 219, 219);
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  /* opacity:0.5; */
   border-radius: 2%;
 }
 
-.header {
+.login-header {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.input-div {
-  /* width: 100%; */
+.login-input-div {
   display: flex;
   justify-content: center;
   padding: 5px;
 }
 
-.input {
+.login-input {
   width: 100%;
   height: 45px;
   font-size: 22px;
@@ -54,29 +52,28 @@
   width: 100%;
   height: 40px;
 }
-.new-user-signup {
+.login-new-user-signup {
   display: flex;
   justify-content: end;
 }
 
-.signup {
+.login-signup {
   text-decoration: underline;
   color: blue;
   cursor: pointer;
 }
 
-.social {
+.login-social {
   display: flex;
   justify-content: space-around;
-  padding: 0px;
+  padding-top: 30px;
 }
 
-.social i {
-  /* border: 1px solid gray; */
+.login-social i {
   font-size: 35px;
 }
 
-.social i:hover {
+.login-social i:hover {
   color: rgb(124, 63, 223);
   cursor: pointer;
 }

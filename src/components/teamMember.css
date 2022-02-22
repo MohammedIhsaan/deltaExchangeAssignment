@@ -1,6 +1,6 @@
 .blur {
   opacity: 0.6;
-  background-color: rgb(26, 21, 21);
+  background-color: rgb(56, 55, 55);
 }
 
 table {
@@ -12,7 +12,7 @@ table {
   width: 100%;
   padding: 50px;
   position: fixed;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: 80vh;
 }
 
@@ -29,11 +29,20 @@ tr:nth-child(even) {
 .teamMember {
   display: flex;
   align-items: center;
+  padding-bottom: 20px;
+}
+
+.check-boxes {
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 .addBuuton {
-  height: 24px;
+  display: flex;
+  align-items: center;
+  height: 30px;
   margin-left: 24px;
+  padding: 8px;
   border-radius: 25px;
   cursor: pointer;
   background-color: rgba(22, 22, 209, 0.815);

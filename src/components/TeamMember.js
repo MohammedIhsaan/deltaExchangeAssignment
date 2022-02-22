@@ -4,6 +4,7 @@ import "./teamMember.css";
 import downIcon from "../icons/down-arrow.png";
 import { addMemeber, deleteMemeber } from "../redux/actions/action";
 import FormModal from "./FormModal";
+import { useNavigate } from "react-router-dom";
 
 export default function TeamMember() {
   let data = useSelector((state) => state.allMember.member);
@@ -17,6 +18,11 @@ export default function TeamMember() {
   );
   const [isCheckedAll, setIsCheckedAll] = useState(false);
   //   const [data, setdata] = useState(data);
+
+  const { accessToken, user } = useSelector((state) => state.authReducer);
+  console.log("fooooo", accessToken, user);
+
+  const history = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -63,6 +69,8 @@ export default function TeamMember() {
   console.log(count);
 
   useEffect(() => {
+    // user ? history("/") : history("/login");
+    // accessToken ? history("/") : history("/login");
     isChecked.every((value) => value === true)
       ? setIsCheckedAll(true)
       : setIsCheckedAll(false);
@@ -74,57 +82,58 @@ export default function TeamMember() {
         <div className="teamMember">
           <h2>Team Members</h2>
           <button onClick={handleSubmit} className="addBuuton">
-            Add Members <span>+</span>
+            Add Members <span style={{ fontSize: "24px" }}>+</span>
           </button>
         </div>
         <hr />
+        <div className="check-boxes">
+          <div id="list1" className={classList}>
+            <span onClick={handleSelect} className="anchor">
+              <span style={{ paddingRight: "10px" }}>Company({count})</span>
+              <img className={rotate} src={downIcon} alt="img" />{" "}
+            </span>
+            <ul className="items">
+              <li>
+                <input
+                  checked={isCheckedAll}
+                  onChange={handleChangeAll}
+                  type="checkbox"
+                />
+                Select All
+              </li>
+              {data?.map((obj, index) => {
+                return (
+                  <li key={index}>
+                    <input
+                      onClick={handleCount}
+                      onChange={handleChange}
+                      type="checkbox"
+                      id={index}
+                      checked={isChecked[index]}
+                    />
+                    {obj.company}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
 
-        <div id="list1" className={classList} tabIndex="100">
-          <span onClick={handleSelect} className="anchor">
-            <span style={{ paddingRight: "10px" }}>Company({count})</span>
-            <img className={rotate} src={downIcon} alt="img" />{" "}
-          </span>
-          <ul className="items">
-            <li>
-              <input
-                checked={isCheckedAll}
-                onChange={handleChangeAll}
-                type="checkbox"
-              />
-              Select All
-            </li>
-            {data?.map((obj, index) => {
-              return (
-                <li key={index}>
-                  <input
-                    onClick={handleCount}
-                    onChange={handleChange}
-                    type="checkbox"
-                    id={index}
-                    checked={isChecked[index]}
-                  />
-                  {obj.company}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-
-        <div id="list2" className="dropdown-check-list" tabIndex="100">
-          <span className="anchor">
-            <span style={{ paddingRight: "10px" }}>Status</span>
-            <img className="iconSize" alt="img" src={downIcon} />
-          </span>
-          <ul className="items">
-            <li>
-              <input type="checkbox" />
-              Active
-            </li>
-            <li>
-              <input type="checkbox" />
-              Close
-            </li>
-          </ul>
+          <div id="list2" className="dropdown-check-list">
+            <span className="anchor">
+              <span style={{ paddingRight: "10px" }}>Status</span>
+              <img className="iconSize" alt="img" src={downIcon} />
+            </span>
+            <ul className="items">
+              <li>
+                <input type="checkbox" />
+                Active
+              </li>
+              <li>
+                <input type="checkbox" />
+                Close
+              </li>
+            </ul>
+          </div>
         </div>
 
         <table>

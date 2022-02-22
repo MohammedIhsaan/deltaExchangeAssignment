@@ -26,14 +26,24 @@ export default function FormModal({ popup, setpopup, setblur }) {
       statusRef.current.value,
       noteRef.current.value
     );
+    let name = nameRef.current.value,
+      companyName = companyRef.current.value,
+      status = statusRef.current.value,
+      note = noteRef.current.value,
+      today = new Date();
+
+    if (name === "" || companyName === "" || status === "" || note === "") {
+      return;
+    }
     dispatch(
       addMemeber({
         id: data.length,
-        name: nameRef.current.value,
-        company: companyRef.current.value,
-        status: statusRef.current.value,
-        notes: noteRef.current.value,
-        lastUpdate: "02/10/2022",
+        name: name,
+        company: companyName,
+        status: status,
+        notes: note,
+        lastUpdate:
+          today.getDate() + "/" + today.getMonth() + "/" + today.getFullYear(),
       })
     );
     handlePopup();
@@ -48,19 +58,19 @@ export default function FormModal({ popup, setpopup, setblur }) {
       <form>
         <label>Name</label>
         <br />
-        <input className="input" type="text" ref={nameRef} />
+        <input className="modal-input" type="text" ref={nameRef} />
         <br />
         <label>Company</label>
         <br />
-        <input className="input" type="text" ref={companyRef} />
+        <input className="modal-input" type="text" ref={companyRef} />
         <br />
         <label>Status</label>
         <br />
-        <input className="input" type="text" ref={statusRef} />
+        <input className="modal-input" type="text" ref={statusRef} />
         <br />
         <label>Notes</label>
         <br />
-        <input className="input" type="text" ref={noteRef} />
+        <input className="modal-input" type="text" ref={noteRef} />
       </form>
       <div className="button-div">
         <button onClick={handleCancel}>Cancel</button>

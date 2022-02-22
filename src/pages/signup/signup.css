@@ -8,7 +8,7 @@
 
 .form-signup {
   width: 380px;
-  height: 650px;
+  height: 550px;
   background-color: rgb(231, 219, 219);
   padding: 20px;
   display: flex;
@@ -68,11 +68,10 @@
 .social {
   display: flex;
   justify-content: space-around;
-  padding: 0px;
+  padding-top: 30px;
 }
 
 .social i {
-  /* border: 1px solid gray; */
   font-size: 35px;
 }
 

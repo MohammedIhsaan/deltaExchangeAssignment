@@ -10,7 +10,7 @@ const app = firebase.initializeApp({
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
 });
 
-console.log("hiiiiiiiiiii", app.auth());
+// console.log("hiiiiiiiiiii", app.auth());
 
 export const auth = app.auth();
 

@@ -48,71 +48,71 @@ export default function Singup({ setpath }) {
 
   useEffect(() => {
     if (accessToken) {
-      history("/");
+      history("/deltaExchangeAssignment");
     }
     if (user) {
       console.log("user form if", user);
-      history("/");
+      history("/deltaExchangeAssignment");
     }
   }, [accessToken, history, user]);
 
   return (
-    <div className="signup-container">
-      <div className="form-signup">
-        <div className="header">
-          <h4 className="user-icon">
-            <i className="fa fa-user-circle" style={{ fontSize: "110px" }}></i>
+    <div className='signup-container'>
+      <div className='form-signup'>
+        <div className='header'>
+          <h4 className='user-icon'>
+            <i className='fa fa-user-circle' style={{ fontSize: "110px" }}></i>
           </h4>
         </div>
-        {texterorr && <span className="signup-error">{texterorr}</span>}
-        {error && <span className="signup-error">{error}</span>}
-        <div className="body-form">
+        {texterorr && <span className='signup-error'>{texterorr}</span>}
+        {error && <span className='signup-error'>{error}</span>}
+        <div className='body-form'>
           <form onSubmit={handleSubmit}>
-            <div className="input-div">
-              <i class="fa fa-user"></i>
+            <div className='input-div'>
+              <i class='fa fa-user'></i>
               <input
-                type="text"
-                className="input"
+                type='text'
+                className='input'
                 ref={nameRef}
-                placeholder="Name"
+                placeholder='Name'
               />
             </div>
-            <div className="input-div">
-              <i class="fa fa-solid fa-envelope"></i>
+            <div className='input-div'>
+              <i class='fa fa-solid fa-envelope'></i>
               <input
-                type="text"
-                className="input"
+                type='text'
+                className='input'
                 ref={emailRef}
-                placeholder="Email"
+                placeholder='Email'
               />
             </div>
-            <div className="input-div">
-              <i class="fa fa-lock"></i>
+            <div className='input-div'>
+              <i class='fa fa-lock'></i>
               <input
-                type="Password"
-                className="input"
+                type='Password'
+                className='input'
                 ref={passwordRef}
-                placeholder="Password"
+                placeholder='Password'
               />
             </div>
-            <div className="input-div">
-              <i className="fa fa-lock"></i>
+            <div className='input-div'>
+              <i className='fa fa-lock'></i>
               <input
-                type="Password"
-                className="input"
+                type='Password'
+                className='input'
                 ref={confirmPasswordRef}
-                placeholder="Confirm Password"
+                placeholder='Confirm Password'
               />
             </div>
-            <button type="submit" className="btn-signup">
+            <button type='submit' className='btn-signup'>
               SignUp
             </button>
-            <div className="new-user-signup">
+            <div className='new-user-signup'>
               <span>Already have account</span>{" "}
               <Link
-                className="signup"
+                className='signup'
                 style={{ paddingLeft: "10px" }}
-                to="/deltaExchangeAssignment/login"
+                to='/deltaExchangeAssignment/login'
               >
                 Login
               </Link>
@@ -127,8 +127,8 @@ export default function Singup({ setpath }) {
           >
             Or sign in with:
           </h5>
-          <div className="social">
-            <i onClick={handleLogin} className="fab fa-google"></i>
+          <div className='social'>
+            <i onClick={handleLogin} className='fab fa-google'></i>
           </div>
         </div>
       </div>

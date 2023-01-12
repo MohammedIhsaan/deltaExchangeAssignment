@@ -11,16 +11,20 @@ export default function App() {
   const history = useNavigate();
 
   useEffect(() => {
-    user ? history("/") : history("deltaExchangeAssignment/login");
-    accessToken ? history("/") : history("deltaExchangeAssignment/login");
-  }, []);
+    user
+      ? history("deltaExchangeAssignment")
+      : history("/deltaExchangeAssignment/login");
+    accessToken
+      ? history("deltaExchangeAssignment")
+      : history("/deltaExchangeAssignment/login");
+  }, [user, accessToken]);
 
   return (
     <div>
       <Routes>
-        <Route path="/" element={<TeamMember />} />
-        <Route path="deltaExchangeAssignment/login" element={<Login />} />
-        <Route path="deltaExchangeAssignment/signup" element={<Signup />} />
+        <Route path='/deltaExchangeAssignment' element={<TeamMember />} />
+        <Route path='/deltaExchangeAssignment/login' element={<Login />} />
+        <Route path='/deltaExchangeAssignment/signup' element={<Signup />} />
       </Routes>
     </div>
   );

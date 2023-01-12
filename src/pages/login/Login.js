@@ -31,53 +31,53 @@ export default function Login() {
 
   useEffect(() => {
     if (accessToken) {
-      history("/");
+      history("/deltaExchangeAssignment");
     }
     if (user) {
       console.log("user form if", user);
-      history("/");
+      history("/deltaExchangeAssignment");
     }
   }, [accessToken, history, user]);
 
   return (
-    <div className="login-container">
-      <div className="form-login">
-        <div className="login-header">
-          <h4 className="user-icon">
-            <i className="fa fa-user-circle" style={{ fontSize: "110px" }}></i>
+    <div className='login-container'>
+      <div className='form-login'>
+        <div className='login-header'>
+          <h4 className='user-icon'>
+            <i className='fa fa-user-circle' style={{ fontSize: "110px" }}></i>
           </h4>
         </div>
-        {texterror && <div className="login-error">{texterror}</div>}
-        {error && <div className="login-error">{error}</div>}
-        <div className="body-form">
+        {texterror && <div className='login-error'>{texterror}</div>}
+        {error && <div className='login-error'>{error}</div>}
+        <div className='body-form'>
           <form onSubmit={handleSubmit}>
-            <div className="login-input-div">
-              <i className="fa fa-user"></i>
+            <div className='login-input-div'>
+              <i className='fa fa-user'></i>
               <input
-                type="text"
-                className="login-input"
+                type='text'
+                className='login-input'
                 ref={emailRef}
-                placeholder="Email"
+                placeholder='Email'
               />
             </div>
-            <div className="login-input-div">
-              <i className="fa fa-lock"></i>
+            <div className='login-input-div'>
+              <i className='fa fa-lock'></i>
               <input
-                type="password"
-                className="login-input"
+                type='password'
+                className='login-input'
                 ref={passwordRef}
-                placeholder="Password"
+                placeholder='Password'
               />
             </div>
-            <button type="submit" className="btn-login">
+            <button type='submit' className='btn-login'>
               LOGIN
             </button>
-            <div className="login-new-user-signup">
+            <div className='login-new-user-signup'>
               <span>new user</span>{" "}
               <Link
-                className="login-signup"
+                className='login-signup'
                 style={{ paddingLeft: "10px" }}
-                to="/deltaExchangeAssignment/signup"
+                to='/deltaExchangeAssignment/signup'
               >
                 SignUp
               </Link>
@@ -92,8 +92,8 @@ export default function Login() {
           >
             Or sign in with:
           </h5>
-          <div className="login-social">
-            <i onClick={handlelogin} className="fab fa-google"></i>
+          <div className='login-social'>
+            <i onClick={handlelogin} className='fab fa-google'></i>
           </div>
         </div>
       </div>

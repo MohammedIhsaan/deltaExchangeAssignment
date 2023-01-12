@@ -12,10 +12,10 @@ export default function App() {
 
   useEffect(() => {
     user
-      ? history("deltaExchangeAssignment")
+      ? history("/deltaExchangeAssignment")
       : history("/deltaExchangeAssignment/login");
     accessToken
-      ? history("deltaExchangeAssignment")
+      ? history("/deltaExchangeAssignment")
       : history("/deltaExchangeAssignment/login");
   }, [user, accessToken]);
 

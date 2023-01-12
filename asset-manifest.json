@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "https://MohammedIhsaan.github.io/deltaExchangeAssignment/static/css/main.9744ffe9.chunk.css",
+    "main.js": "https://MohammedIhsaan.github.io/deltaExchangeAssignment/static/js/main.6ddc26c2.chunk.js",
+    "main.js.map": "https://MohammedIhsaan.github.io/deltaExchangeAssignment/static/js/main.6ddc26c2.chunk.js.map",
+    "runtime-main.js": "https://MohammedIhsaan.github.io/deltaExchangeAssignment/static/js/runtime-main.687b9aac.js",
+    "runtime-main.js.map": "https://MohammedIhsaan.github.io/deltaExchangeAssignment/static/js/runtime-main.687b9aac.js.map",
+    "static/js/2.64dd39bf.chunk.js": "https://MohammedIhsaan.github.io/deltaExchangeAssignment/static/js/2.64dd39bf.chunk.js",
+    "static/js/2.64dd39bf.chunk.js.map": "https://MohammedIhsaan.github.io/deltaExchangeAssignment/static/js/2.64dd39bf.chunk.js.map",
+    "index.html": "https://MohammedIhsaan.github.io/deltaExchangeAssignment/index.html",
+    "static/css/main.9744ffe9.chunk.css.map": "https://MohammedIhsaan.github.io/deltaExchangeAssignment/static/css/main.9744ffe9.chunk.css.map",
+    "static/js/2.64dd39bf.chunk.js.LICENSE.txt": "https://MohammedIhsaan.github.io/deltaExchangeAssignment/static/js/2.64dd39bf.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.687b9aac.js",
+    "static/js/2.64dd39bf.chunk.js",
+    "static/css/main.9744ffe9.chunk.css",
+    "static/js/main.6ddc26c2.chunk.js"
+  ]
+}
